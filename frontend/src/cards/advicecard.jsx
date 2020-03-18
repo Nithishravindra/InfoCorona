@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Card_c from './card3';
+import './card-style.css';
+//import Card_c from './card3';
 
 class Cards3 extends Component {
     constructor() {
@@ -8,6 +9,7 @@ class Cards3 extends Component {
             advice: ""
         };
     }
+
     componentDidMount() {
         fetch(`http://localhost:3002/advice`, {
             method: 'GET',
@@ -26,11 +28,20 @@ class Cards3 extends Component {
     render() {
 
         const { advice } = this.state;
+        
         return (
             <div className="container-fluid d-flex justify-content-center">
                 <div className="row">
                     <div className="col-md-12">
-                        <Card_c title="Advices" text1={advice} />
+
+                        <div className="card text-center shadow">
+                            <div className="card-body text-dark">
+                                <h4 className="card-title">Advice</h4>
+                                <p className="card-text text-secondary">{advice}</p>
+                            </div>
+                        </div>
+
+                        {/* <Card_c title="Advices" text1={advice} /> */}
 
                     </div>
                 </div>

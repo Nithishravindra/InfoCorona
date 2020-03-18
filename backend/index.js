@@ -128,10 +128,10 @@ app.get('/indStats', (req, res) => {
                     "dateOfUpdate": dateOfUpdate,
                     "timeOfUpdate": time,
                     "states": state,
-                    "TotalIndianNationalCases(states)": indCase,
-                    "TotalForeignNationalCases(states)": forCase,
-                    "CuredCases(states)": cured,
-                    "DeathCases(states)": death
+                    "TotalIndianNationalCaseslist": indCase,
+                    "TotalForeignNationalCaseslist": forCase,
+                    "CuredCaseslist": cured,
+                    "DeathCaseslist": death
                 }
 
                 res.status(200).send({
