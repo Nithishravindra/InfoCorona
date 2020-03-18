@@ -1,18 +1,16 @@
 import React from 'react'
+import Cards from './cards/worldstatscard';
+import Cards2 from './cards/indstatscard';
+import Cards3 from './cards/advicecard';
+import Cards4 from './cards/helplinecard';
 
-//import {Card,Carousel} from 'react-bootstrap';
-//import mn from '../assets/aaa.jpg';
-import Card from './cards/cards1';
-//import Card2 from './cards/cards2';
 export const Home = () => (
   <div>
-
     <span>
-      
-      <Card />
+      <Cards />
+      <Cards2 />
+      <Cards3 />
+      <Cards4 />
     </span>
-    
-
-
   </div>
 )
