@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './card-style.css';
+//import Card_c from './card3';
 
-class Advice extends Component {
-
+class Cards3 extends Component {
     constructor() {
         super();
         this.state = {
-            advice: ""
+            info: []
         };
     }
 
@@ -20,13 +20,14 @@ class Advice extends Component {
             .then(r => r.json())
             .then(data => {
                 this.setState({
-                    advice: data.message
+                    info: data.message
+
                 })
             })
     }
     render() {
 
-        const { advice } = this.state;
+        const { info } = this.state;
 
         return (
             <div className="container-fluid d-flex justify-content-center">
@@ -36,13 +37,20 @@ class Advice extends Component {
                         <div className="card text-center shadow">
                             <div className="card-body text-dark">
                                 <h4 className="card-title">Advice</h4>
-                                <p className="card-text text-secondary">{advice}</p>
+                                {info.map((item, index) => (
+                                    <div key={index} >
+                                        <p className="card-text text-secondary">{item.advice}<br /></p>
+                                    </div>
+                                ))}
                             </div>
                         </div>
+
+                        {/* <Card_c title="Advices" text1={advice} /> */}
+
                     </div>
                 </div>
             </div>
         );
     }
 }
-export default Advice;
+export default Cards3;

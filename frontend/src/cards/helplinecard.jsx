@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import './card-style.css';
+// import Card_d from './card4';
 
-class Contact extends Component {
-
+class Cards4 extends Component {
     constructor() {
         super();
         this.state = {
             info: []
         };
     }
-
     componentDidMount() {
         fetch(`http://localhost:3002/helpline`, {
             method: 'GET',
@@ -36,18 +35,21 @@ class Contact extends Component {
                     <div className="col-md-12">
                         <div className="card text-center shadow">
                             <div className="card-body text-dark">
+                                <h4 className="card-title">Helpline</h4>
                                 {info.map((item, index) => (
                                     <div key={index} >
-                                        <h4 className="card-title">{item.state}</h4>
-                                        <p className="card-text text-secondary">{item.contactNo}</p>
+                                        <p className="card-text text-secondary">{item.state}-{item.contactNo}</p>
                                     </div>
+
                                 ))}
                             </div>
                         </div>
+                        {/* <Card_d title="Helpline" text1={state} text2={contactNo} /> */}
+
                     </div>
                 </div>
             </div>
         );
     }
 }
-export default Contact;
+export default Cards4;

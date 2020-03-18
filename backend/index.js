@@ -36,7 +36,7 @@ app.get('/worldStats', (req, res) => {
 })
 
 app.get('/helpline', (req, res) => {
-    const text = [
+    let text = [
         {
             state: "karnataka",
             contactNo: "104"
@@ -44,14 +44,12 @@ app.get('/helpline', (req, res) => {
         {
             state: "Andhra Pradesh",
             contactNo: "0866-2410978"
-        }, 
-        {
+        }, {
             state: "Tamil Nadu",
             contactNo: "044-29510500"
-        }, 
-        {
+        }, {
             state: "Kerala ",
-            contactNo: "0471-2552056'"
+            contactNo: "0471-2552056"
         }
     ]
     res.status(200).send({
@@ -60,7 +58,20 @@ app.get('/helpline', (req, res) => {
 })
 
 app.get('/advice', (req, res) => {
-    const text = '1. Avoid close contact with people who are sick. Maintain at least three feet distance between yourself and anyone who is coughing or sneezing. 2. Avoid touching your eyes, nose, and mouth. 3. Wash your hands often with soap and water for at least 20 seconds, especially after going to the bathroom, before eating, and after blowing your nose, coughing, or sneezing. 4. If soap and water are not readily available, use an alcohol-based hand sanitiser with at least 60% alcohol. Always wash hands with soap and water when hands are visibly dirty. 5. If you have a fever, cough and difficulty breathing, seek medical attention immediately.'
+    const text = [
+        {
+            advice:'1. Avoid close contact with people who are sick. Maintain at least three feet distance between yourself and anyone who is coughing or sneezing.'
+        } , {
+            advice:'2. Avoid touching your eyes, nose, and mouth.'
+        } , {
+            advice:'3. Wash your hands often with soap and water for at least 20 seconds, especially after going to the bathroom, before eating, and after blowing your nose, coughing, or sneezing.'
+        } , {
+            advice:'4. If soap and water are not readily available, use an alcohol-based hand sanitiser with at least 60% alcohol. Always wash hands with soap and water when hands are visibly dirty.'
+        } , {
+            advice:'5. If you have a fever, cough and difficulty breathing, seek medical attention immediately.'
+        }
+    ]
+   
     res.status(200).send({
         message: text
     })
