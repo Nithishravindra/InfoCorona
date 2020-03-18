@@ -96,8 +96,6 @@ app.get('/indStats', (req, res) => {
                 cheerioTableparser($)
                 let table = $('body > div:nth-child(3) > div > div > div > ol > strong > strong > strong > div').parsetable(false, false, false);
 
-                console.log(table)
-
                 let rawCases = table[2][table[2].length - 1] + table[3][table[2].length - 1];
                 let tot = rawCases.trim().split('>')
                 let indanCaseConfirmed = parseInt(tot[1].match(/\d+/g))
