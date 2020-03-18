@@ -100,13 +100,13 @@ class IndStats extends Component {
                             <div className="card-body text-dark">
                                 <h4 className="card-title">IND Statics</h4>
                                 <p style={{ fontsize: 20 }} className="card-text text-secondary" >Total Cases : {totalCases} </p>
-                                <p className="card-text text-secondary">ActiveCases : {activeCases}</p>
-                                <p className="card-text text-secondary">DateOfUpdate : {dateOfUpdate}</p>
-                                <p className="card-text text-secondary">TimeOfUpdate: {timeOfUpdate}</p>
-                                <p className="card-text text-secondary">NoOfIndianCase: {noOfIndianNationalCase}</p>
-                                <p className="card-text text-secondary">NoOfForeignCase: {noOfForeignNationalCase}</p>
-                                <p className="card-text text-secondary">NoOfCuredCase: {totalCuredCase}</p>
-                                <p className="card-text text-secondary">NoOfDeath: {totalDeath}</p>
+                                <p className="card-text text-secondary">Active Cases : {activeCases}</p>
+                                <p className="card-text text-secondary">Date Of Update : {dateOfUpdate}</p>
+                                <p className="card-text text-secondary">Time Of Update: {timeOfUpdate}</p>
+                                <p className="card-text text-secondary">No Of Indian Cases: {noOfIndianNationalCase}</p>
+                                <p className="card-text text-secondary">No Of Foreign Cases: {noOfForeignNationalCase}</p>
+                                <p className="card-text text-secondary">No Of Cured Cases: {totalCuredCase}</p>
+                                <p className="card-text text-secondary">No Of Deaths: {totalDeath}</p>
                                 <table>
                                     <thead>
                                         <tr>{this.getHead()}</tr>
