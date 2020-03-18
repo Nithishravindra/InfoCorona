@@ -5,6 +5,10 @@ const cheerio = require('cheerio');
 const cheerioTableparser = require('cheerio-tableparser');
 const express = require('express');
 const app = express();
+const cors = require('cors')
+
+
+app.use(cors())
 
 app.get('/worldStats', (req, res) => {
     const URL = 'https://www.worldometers.info/coronavirus/';
@@ -75,24 +79,29 @@ app.get('/indStats', (req, res) => {
                     .trim()
                     .split(' ');
                 let units;
-                if (latestUpdate[8].includes('AM')) {
-                    units = 'AM';
-                } else {
-                    units = 'PM';
-                }
-                let time = latestUpdate[7] + " " + units;
+
+                console.log(countAffected)
+                console.log(latestUpdate)
+                // if (latestUpdate[8].includes('AM')) {
+                //     units = 'AM';
+                // } else {
+                //     units = 'PM';
+                // }
+                //let time = latestUpdate[7] + " " + units;
 
 
                 cheerioTableparser($)
                 let table = $('#content').parsetable(false, false, false);
 
-                let rawCases = table[2][table[2].length - 1] + table[3][table[2].length - 1] + table[4][table[2].length - 1] + table[5][table[2].length - 1]
-                let tot = rawCases.trim().split('>')
-                let tot1 = parseInt(tot[1].match(/\d+/g))
-                let tot2 = parseInt(tot[3].match(/\d+/g))
-                let curedTot = parseInt(tot[5].match(/\d+/g))
-                let deathTot = parseInt(tot[7].match(/\d+/g))
+                console.log(table)
+                // let rawCases = table[2][table[2].length - 1] + table[3][table[2].length - 1] + table[4][table[2].length - 1] + table[5][table[2].length - 1]
+                // let tot = rawCases.trim().split('>')
+                // let tot1 = parseInt(tot[1].match(/\d+/g))
+                // let tot2 = parseInt(tot[3].match(/\d+/g))
+                // let curedTot = parseInt(tot[5].match(/\d+/g))
+                // let deathTot = parseInt(tot[7].match(/\d+/g))
 
+                //console.log(tot)
 
                 let state = [];
                 let indCase = [];
@@ -100,32 +109,34 @@ app.get('/indStats', (req, res) => {
                 let cured = [];
                 let death = [];
 
-                for (let i = 1; i < table[1].length; i++) {
-                    state[i - 1] = table[1][i];
-                    indCase[i - 1] = table[2][i]
-                    forCase[i - 1] = table[3][i]
-                    cured[i - 1] = table[4][i]
-                    death[i - 1] = table[5][i]
-                }
+                // for (let i = 1; i < table[1].length; i++) {
+                //     state[i - 1] = table[1][i];
+                //     indCase[i - 1] = table[2][i]
+                //     forCase[i - 1] = table[3][i]
+                //     cured[i - 1] = table[4][i]
+                //     death[i - 1] = table[5][i]
+                // }
 
-                output = {
-                    "NoOfPeopeleAffected": countAffected[3],
-                    "DateOfUpdate": latestUpdate[5],
-                    "TimeOfUpdate": time,
-                    "NoOfIndianCase": tot1,
-                    "NoOfForeignCase": tot2,
-                    "NoOfCuredCase": curedTot,
-                    "NoOfDeath": deathTot,
-                    "States": state,
-                    "TotalIndianNationalCases": indCase,
-                    "TotalForeignNationalCases": forCase,
-                    "CuredCases": cured,
-                    "DeathCases": death
-                }
+                
 
-                res.status(200).send({
-                    message: output
-                })
+                // output = {
+                //     "NoOfPeopeleAffected": countAffected[3],
+                //     "DateOfUpdate": latestUpdate[5],
+                //     "TimeOfUpdate": time,
+                //     "NoOfIndianCase": tot1,
+                //     "NoOfForeignCase": tot2,
+                //     "NoOfCuredCase": curedTot,
+                //     "NoOfDeath": deathTot,
+                //     "States": state,
+                //     "TotalIndianNationalCases": indCase,
+                //     "TotalForeignNationalCases": forCase,
+                //     "CuredCases": cured,
+                //     "DeathCases": death
+                // }
+
+                // res.status(200).send({
+                //     message: output
+                // })
 
             } else {
                 console.error('Failed to load');

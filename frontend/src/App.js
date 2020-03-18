@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Home } from './Home';
 
-
 import { Layout } from './components/Layout';
 
 import { Jumbotron } from './components/Jumbotron';

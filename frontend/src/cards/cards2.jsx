@@ -5,7 +5,6 @@ import './card-style.css';
 const Card2=props=>{
     return(
         <div className="card text-center shadow">
-            
         
         <div className="card-body text-dark">
             <h4 className="card-title">{props.title}</h4>
