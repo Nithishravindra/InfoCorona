@@ -1,16 +1,16 @@
 import React from 'react'
-import Cards from './cards/worldstatscard';
-import Cards2 from './cards/indstatscard';
-import Cards3 from './cards/advicecard';
-import Cards4 from './cards/helplinecard';
+import WorldStatsCard from './cards/WorldStatsCard';
+import IndStatsCard from './cards/IndStatsCard';
+import AdviceCards from './cards/AdviceCards';
+import HelpLineCard from './cards/HelpLineCard';
 
 export const Home = () => (
   <div>
     <span>
-      <Cards />
-      <Cards2 />
-      <Cards3 />
-      <Cards4 />
+      <WorldStatsCard />
+      <IndStatsCard />
+      <AdviceCards />
+      <HelpLineCard />
     </span>
   </div>
 )

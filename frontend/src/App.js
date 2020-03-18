@@ -11,14 +11,10 @@ class App extends Component {
     return (
       <React.Fragment>
         <Router>
-          
           <Jumbotron />
           <Layout>
             <Switch>
               <Route exact path="/" component={Home} />
-              
-              
-              
             </Switch>
           </Layout>
         </Router>

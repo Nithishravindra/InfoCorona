@@ -36,7 +36,7 @@ app.get('/worldStats', (req, res) => {
 })
 
 app.get('/helpline', (req, res) => {
-    let text = [
+    const text = [
         {
             state: "karnataka",
             contactNo: "104"
@@ -44,10 +44,12 @@ app.get('/helpline', (req, res) => {
         {
             state: "Andhra Pradesh",
             contactNo: "0866-2410978"
-        }, {
+        }, 
+        {
             state: "Tamil Nadu",
             contactNo: "044-29510500"
-        }, {
+        }, 
+        {
             state: "Kerala ",
             contactNo: "0471-2552056'"
         }
