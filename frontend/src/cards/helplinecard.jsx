@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './card-style.css';
-// import Card_d from './card4';
+
 
 class Cards4 extends Component {
     constructor() {
@@ -44,8 +44,6 @@ class Cards4 extends Component {
                                 ))}
                             </div>
                         </div>
-                        {/* <Card_d title="Helpline" text1={state} text2={contactNo} /> */}
-
                     </div>
                 </div>
             </div>

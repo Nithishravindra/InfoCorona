@@ -20,11 +20,11 @@ app.get('/worldStats', (req, res) => {
                 const numbers = $('.maincounter-number')
                     .text()
                     .trim()
-                    .split(' ');
+                    .split('\n');
                 output = {
-                    TotalCases: numbers[0],
-                    Deaths: numbers[3],
-                    Recovered: numbers[5]
+                    TotalCases: numbers[0].trim(),
+                    Deaths: numbers[3].trim(),
+                    Recovered: numbers[5].trim()
                 }
                 res.status(200).send({
                     message: output
@@ -86,11 +86,13 @@ app.get('/indStats', (req, res) => {
                 const $ = cheerio.load(response.data);
                 let rawData = $('ol').text().split('\n');
 
+                
                 let temp = rawData[2].split(' ');
 
                 const totalActiveCase = temp[temp.length - 1]
-                temp = rawData[5].split(' ');
+                temp = rawData[6].split(' ');
 
+                
                 const dateOfUpdate = temp[5];
                 let units;
                 if (temp[8].includes('AM')) {
@@ -100,14 +102,18 @@ app.get('/indStats', (req, res) => {
                 }
                 let time = temp[7] + " " + units;
 
+                
                 temp = rawData[3].split(' ');
                 const totalCuredCase = temp[temp.length - 1];
 
-                temp = rawData[4].split(' ');
+                temp = rawData[5].split(' ');
                 const totalDeath = temp[temp.length - 2];
+                
 
                 cheerioTableparser($)
-                let table = $('body > div:nth-child(3) > div > div > div > ol > strong > strong > strong > div').parsetable(false, false, false);
+                let table = $('body > div:nth-child(3) > div > div > div > ol').parsetable(false, false, false);
+
+                console.log(table)
 
                 let rawCases = table[2][table[2].length - 1] + table[3][table[2].length - 1];
                 let tot = rawCases.trim().split('>')
@@ -145,6 +151,7 @@ app.get('/indStats', (req, res) => {
                     "DeathCaseslist": death
                 }
 
+                
                 res.status(200).send({
                     message: output
                 })

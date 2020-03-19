@@ -107,6 +107,8 @@ class IndStats extends Component {
                                 <p className="card-text text-secondary">No Of Foreign Cases: {noOfForeignNationalCase}</p>
                                 <p className="card-text text-secondary">No Of Cured Cases: {totalCuredCase}</p>
                                 <p className="card-text text-secondary">No Of Deaths: {totalDeath}</p>
+                               
+                               <div className="center">
                                 <table>
                                     <thead>
                                         <tr>{this.getHead()}</tr>
@@ -115,6 +117,7 @@ class IndStats extends Component {
                                         {this.getTableData()}
                                     </tbody>
                                 </table>
+                                </div>
                             </div>
                         </div>
                     </div>

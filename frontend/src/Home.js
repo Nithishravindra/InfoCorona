@@ -1,8 +1,8 @@
 import React from 'react'
-import WorldStatsCard from './cards/WorldStatsCard';
-import IndStatsCard from './cards/IndStatsCard';
+import WorldStatsCard from './cards/worldstatscard';
+import IndStatsCard from './cards/indstatscard';
 import AdviceCards from './cards/AdviceCards';
-import HelpLineCard from './cards/HelpLineCard';
+import HelpLineCard from './cards/helplinecard';
 
 export const Home = () => (
   <div>
