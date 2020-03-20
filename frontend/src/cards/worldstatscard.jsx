@@ -13,7 +13,7 @@ class WorldStats extends Component {
     }
 
     componentDidMount() {
-        fetch(`http://localhost:3002/worldStats`, {
+        fetch(`https://infocorona.nithishravindra.com/worldStats`, {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json'

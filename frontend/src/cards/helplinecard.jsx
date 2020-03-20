@@ -10,7 +10,7 @@ class Cards4 extends Component {
         };
     }
     componentDidMount() {
-        fetch(`http://localhost:3002/helpline`, {
+        fetch(`https://infocorona.nithishravindra.com/helpline`, {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json'

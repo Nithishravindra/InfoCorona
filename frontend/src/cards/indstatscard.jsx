@@ -25,7 +25,7 @@ class IndStats extends Component {
     }
 
     componentDidMount() {
-        fetch(`http://localhost:3002/indStats`, {
+        fetch(`https://infocorona.nithishravindra.com/indStats`, {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json'

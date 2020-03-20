@@ -10,7 +10,7 @@ class Cards3 extends Component {
     }
 
     componentDidMount() {
-        fetch(`http://localhost:3002/advice`, {
+        fetch(`https://infocorona.nithishravindra.com/advice`, {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json'
