@@ -11,7 +11,6 @@ class IndStats extends Component {
             totalCases: "",
             noOfIndianNationalCase: "",
             noOfForeignNationalCase: "",
-            activeCases: "",
             totalCuredCase: "",
             totalDeath: "",
             dateOfUpdate: "",
@@ -40,7 +39,6 @@ class IndStats extends Component {
                     totalCases: res.totalCases,
                     noOfIndianNationalCase: res.noOfIndianNationalCase,
                     noOfForeignNationalCase: res.noOfForeignNationalCase,
-                    activeCases: res.activeCases,
                     totalCuredCase: res.totalCuredCase,
                     totalDeath: res.totalDeath,
                     dateOfUpdate: res.dateOfUpdate,
@@ -98,9 +96,8 @@ class IndStats extends Component {
                     <div className="col-md-12">
                         <div className="card text-center shadow">
                             <div className="card-body text-dark">
-                                <h4 className="card-title">IND Statics</h4>
+                                <h4 className="card-title">IND Statistics</h4>
                                 <p style={{ fontsize: 20 }} className="card-text text-secondary" >Total Cases : {totalCases} </p>
-                                <p className="card-text text-secondary">Active Cases : {activeCases}</p>
                                 <p className="card-text text-secondary">Date Of Update : {dateOfUpdate}</p>
                                 <p className="card-text text-secondary">Time Of Update: {timeOfUpdate}</p>
                                 <p className="card-text text-secondary">No Of Indian Cases: {noOfIndianNationalCase}</p>

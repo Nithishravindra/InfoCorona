@@ -84,42 +84,30 @@ app.get('/indStats', (req, res) => {
             if (response.status === 200) {
 
                 const $ = cheerio.load(response.data);
-                let rawData = $('ol').text().split('\n');
+                let rawData = $('div.content.newtab > p').text();
 
-                
-                let temp = rawData[2].split(' ');
-
-                const totalActiveCase = temp[temp.length - 1]
-                temp = rawData[6].split(' ');
-
+                const totalActiveCase = $('div:nth-child(2) > div > span').text()
+                let  temp = rawData.split(' ');
                 
                 const dateOfUpdate = temp[5];
+
                 let units;
                 if (temp[8].includes('AM')) {
                     units = 'AM';
                 } else {
                     units = 'PM';
                 }
-                let time = temp[7] + " " + units;
-
-                
-                temp = rawData[3].split(' ');
-                const totalCuredCase = temp[temp.length - 1];
-
-                temp = rawData[5].split(' ');
-                const totalDeath = temp[temp.length - 2];
-                
+                 let time = temp[7] + " " + units;
+                 const totalCuredCase = $('div:nth-child(3) > div > span').text();
+                 const totalDeath = $('div:nth-child(4) > div > span').text()
 
                 cheerioTableparser($)
-                let table = $('body > div:nth-child(3) > div > div > div > ol').parsetable(false, false, false);
-
-
-                let rawCases = table[2][table[2].length - 1] + table[3][table[2].length - 1];
-                let tot = rawCases.trim().split('>')
-                let indanCaseConfirmed = parseInt(tot[1].match(/\d+/g))
-                let foreignCaseConfirmed = parseInt(tot[3].match(/\d+/g))
-                const totalNoOfCase = indanCaseConfirmed + foreignCaseConfirmed
-
+                
+                let table = $('body > div.main-section > div > div > div.contribution > strong > div.content.newtab > div').parsetable(false, false, false);
+            
+                let indanCaseConfirmed = $('tr:nth-child(24) > td:nth-child(2) > strong').text();
+                let foreignCaseConfirmed = $('tr:nth-child(24) > td:nth-child(3) > strong').text()
+                                
                 let state = [];
                 let indCase = [];
                 let forCase = [];
@@ -135,10 +123,9 @@ app.get('/indStats', (req, res) => {
                 }
 
                 let output = {
-                    "totalCases": totalNoOfCase,
+                    "totalCases": totalActiveCase,
                     "noOfIndianNationalCase": indanCaseConfirmed,
                     "noOfForeignNationalCase": foreignCaseConfirmed,
-                    "activeCases": totalActiveCase,
                     "totalCuredCase": totalCuredCase,
                     "totalDeath": totalDeath,
                     "dateOfUpdate": dateOfUpdate,
@@ -150,7 +137,8 @@ app.get('/indStats', (req, res) => {
                     "DeathCaseslist": death
                 }
 
-                
+                //console.log(output)
+
                 res.status(200).send({
                     message: output
                 })
@@ -164,3 +152,4 @@ app.get('/indStats', (req, res) => {
 app.listen(3002, () => {
     console.log('Server running on port http://localhost:3002');
 })
+

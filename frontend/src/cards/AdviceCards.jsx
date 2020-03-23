@@ -43,9 +43,6 @@ class Cards3 extends Component {
                                 ))}
                             </div>
                         </div>
-
-                        {/* <Card_c title="Advices" text1={advice} /> */}
-
                     </div>
                 </div>
             </div>

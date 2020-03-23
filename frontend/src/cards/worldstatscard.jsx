@@ -39,7 +39,7 @@ class WorldStats extends Component {
                     <div className="col-md-12">
                         <div className="card text-center shadow">
                             <div className="card-body text-dark">
-                                <h4 className="card-title">World Statics</h4>
+                                <h4 className="card-title">World Statistics</h4>
                                 <p className="card-text text-secondary">Total Cases : {totalCases}</p>
                                 <p className="card-text text-secondary">Total Deaths : {totalDeaths}</p>
                                 <p className="card-text text-secondary">Total Recovery : {totalRecovered}</p>
