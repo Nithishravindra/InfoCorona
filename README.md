@@ -1,6 +1,7 @@
+## infocorona
 
-
-
+A web application built using nodejs and reactjs. 
+Basically, it gives an information on CoronaVirus. World wide statistics from ```https://www.worldometers.info/coronavirus/``` and India statistics from ```https://www.mohfw.gov.in/```.
 
 
 ## Contributors ✨
